@@ -1,1 +1,8 @@
 /* Globale styles her */
+:html{
+    --sort: #181818;
+    --hvid: #FFF;
+    --mørkGrå: rgba(38, 38, 38, 0.90);
+    --grøn: #4EAF4E;
+    --gul: #FBC336;
+}

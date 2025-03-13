@@ -4,10 +4,61 @@ import Services from "./Services.astro";
 
 <section class="hero">
   <!-- Markup her -->
-
+  <div>
+    <h1>Empowering Your Business Growth</h1>
+    <p>
+      Discover tailored strategies and expert insights to take your business to
+      the next level. Let us help you navigate challenges and achieve
+      sustainable success.
+    </p>
+    <a href="#">Book a Meeting</a>
+  </div>
+  <img src="/Photo.jpg" alt="Billede" />
   <Services />
 </section>
 
 <style>
+  section {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    background-color: #181818;
+  }
+
+  div {
+    width: 65ch;
+    color: #fff;
+  }
+
+  h1 {
+    font-family: Cabin;
+    font-size: 50px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 116%;
+  }
+
+  img {
+  }
+  a {
+    color: #353535;
+
+    display: flex;
+    padding: 16px 31px;
+    align-items: center;
+    gap: 10px;
+    border-radius: 55px;
+    background: #151515;
+    width: auto;
+    height: auto;
+    text-decoration: none;
+    text-align: center;
+    font-family: Lato;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 160%;
+
+    background: #fff;
+  }
   /* Styles her */
 </style>

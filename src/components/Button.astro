@@ -1,0 +1,32 @@
+---
+const { variant } = Astro.props;
+import "..global.css";
+---
+
+<button class={variant + " "}>
+  <slot />
+</button>
+
+<style>
+  button {
+    border-radius: 55px;
+    display: flex;
+    padding: 16px 31px;
+    align-items: center;
+    gap: 10px;
+  }
+  .black_btn {
+    color: var(--hvid);
+    background-color: var(--sort);
+  }
+
+  .white_btn {
+    color: var(--sort);
+    background-color: var(--hvid);
+  }
+
+  .yellow_btn {
+    color: var(--sort);
+    background-color: var(--gul);
+  }
+</style>
