@@ -1,11 +1,14 @@
 ---
+import "../styles/global.css";
+
 const faqData = await fetch(
   "https://frontend-design-theme.netlify.app/api/faq"
 ).then((response) => response.json());
 console.log(faqData);
 ---
 
-<div id="demo">
+<div id="faq">
+  <h1>Customer Questions</h1>
   <div class="accordion-wrapper">
     {
       faqData.faq.map((data) => (
@@ -20,4 +23,56 @@ console.log(faqData);
   </div>
 </div>
 
-<style></style>
+<style>
+  #faq {
+    background-color: var(--gray);
+    border-radius: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+  }
+
+  .accordion-wrapper {
+    display: flex;
+    width: 723.159px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 27px;
+  }
+  h1 {
+    color: #181818;
+
+    text-align: center;
+    font-family: "Cabin", sans-serif;
+    font-size: 45px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 116%;
+  }
+  summary {
+    color: #181818;
+    cursor: pointer;
+    font-family: "Cabin", sans-serif;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 116%;
+    gap: 27px;
+
+    &::marker,
+    &::-webkit-details-marker {
+      content: "";
+      display: none;
+    }
+  }
+  p {
+    color: #595566;
+    font-family: "Lato";
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 147.5%;
+    max-width: 65ch;
+  }
+</style>

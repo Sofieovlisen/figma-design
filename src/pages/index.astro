@@ -2,6 +2,7 @@
 import Layout from "../layouts/Layout.astro";
 import Hero from "../components/Hero.astro";
 import Accordion from "../components/Accordion.astro";
+import "../styles/global.css";
 ---
 
 <Layout>
@@ -9,4 +10,8 @@ import Accordion from "../components/Accordion.astro";
   <Accordion />
 </Layout>
 
-<style></style>
+<style>
+  body {
+    background-color: var(--hvid);
+  }
+</style>
