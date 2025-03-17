@@ -1,0 +1,122 @@
+---
+import Popover from "./Popover.astro";
+import "../styles/global.css";
+---
+
+<header>
+  <h1>AskExperts</h1>
+  <ul>
+    <li><a href="">Home</a></li>
+    <li><a href="">Case Study</a></li>
+    <li><a href="">Team</a></li>
+    <li><a href="">About</a></li>
+  </ul>
+
+  <button class="header_btn" data-surface="gul" popovertarget="popup"
+    >Login</button
+  >
+
+  <div id="popup" popover>
+    <h2>Dashboard Login</h2>
+    <form>
+      <label for="email">Emailadress</label><br />
+      <input type="email" id="email" /><br />
+      <label for="pwd">Password</label><br />
+      <input type="password" id="pwd" /><br /><br />
+    </form>
+    <button data-surface="gul">Go to dashboard</button>
+  </div>
+</header>
+
+<style>
+  /* ::backdrop {
+    background-color: #fff;
+    backdrop-filter: blur(40px);
+  } */
+  header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    background: var(--mørkGrå);
+    padding: 24px;
+  }
+
+  .header_btn {
+    padding: 4px 16px;
+  }
+
+  ul {
+    display: flex;
+    flex-direction: row;
+    gap: 30px;
+    list-style: none;
+  }
+
+  li a {
+    text-decoration: none;
+    color: #fff;
+    font-family: "Lato", sans-serif;
+  }
+
+  h1 {
+    color: #fff;
+    font-family: "Cabin", sans-serif;
+    font-weight: 540;
+    font-size: 24px;
+  }
+
+  h2 {
+    padding-bottom: 46px;
+    font-family: "Cabin", sans-serif;
+    font-size: 40px;
+    font-weight: 700;
+    line-height: 116%;
+  }
+
+  label {
+    font-size: 18px;
+    font-family: "Cabin", sans-serif;
+  }
+
+  input {
+    background-color: #fff;
+    color: black;
+    width: 382px;
+    height: auto;
+    border-radius: 4px;
+    margin-bottom: 30px;
+    font-size: 24px;
+    text-transform: capitalize;
+  }
+
+  div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: black;
+    color: #fff;
+    border-radius: 30px;
+    padding: 40px 60px 60px 60px;
+    min-width: 750px;
+  }
+
+  [popover] {
+    opacity: 0;
+    translate: 0 -150%;
+
+    transition: 0.6s;
+    transition-property: opacity, display, overlay, translate;
+    transition-behavior: allow-discrete;
+
+    &:popover-open {
+      opacity: 1;
+      translate: 0 0;
+
+      @starting-style {
+        opacity: 0;
+        translate: 0 100%;
+      }
+    }
+  }
+</style>

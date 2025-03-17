@@ -1,9 +1,49 @@
 /* Globale styles her */
-:html{
+:root{
     --sort: #181818;
     --hvid: #FFF;
-    --mørkGrå: rgba(38, 38, 38, 0.90);
+    --mørkGrå: rgba(27, 27, 27, 0.91);
     --grøn: #4EAF4E;
     --gul: #FBC336;
     --gray: #F5F5F5;
+    --gul-hover:#FFE5A2;
+    --brødtekst: #595566;
+
+    --cabin: 'Cabin', sans-serif;
+    --lato: 'Lato ', sans-serif;
+
 }
+
+[data-surface="gul"] {
+    --bg-btn: var(--gul);
+    --text-btn: var(--sort);
+  }
+
+  [data-surface="gul"]:hover {
+    --bg-btn: var(--gul-hover);
+    --text-btn: var(--sort);
+  }
+
+  [data-surface="hvid"] {
+    --bg-btn: var(--hvid);
+    --text-btn: var(--sort);
+  }
+  
+  [data-surface="sort"] {
+    --bg-btn: var(--sort);
+    --text-btn: var(--hvid);
+    
+  }
+  [data-surface="sort"]:hover {
+    --bg-btn: var(--hvid);
+    --text-btn: var(--sort);
+    border: solid 2px var(--sort);
+    
+  }
+  button {
+    background: var(--bg-btn, var(--hvid));
+    color: var(--text-btn, var(--sort));
+    border-radius: 42px;
+    padding: 16px 31px;
+    font-family: var(--lato);
+  }

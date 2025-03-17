@@ -1,5 +1,7 @@
 ---
 import "../styles/global.css";
+import PlusIcon from "../icons/plus.svg";
+const { exclusive, ...props } = Astro.props;
 
 const faqData = await fetch(
   "https://frontend-design-theme.netlify.app/api/faq"
@@ -8,12 +10,19 @@ console.log(faqData);
 ---
 
 <div id="faq">
+  <p class="green_text">faq</p>
   <h1>Customer Questions</h1>
   <div class="accordion-wrapper">
     {
       faqData.faq.map((data) => (
         <details name="accordion" open>
-          <summary>{data.question}</summary>
+          <summary>
+            <span>
+              {data.question}
+              <PlusIcon />
+            </span>
+          </summary>
+
           <div class="details-content-wrapper">
             <p>{data.answer}</p>
           </div>
@@ -24,6 +33,35 @@ console.log(faqData);
 </div>
 
 <style>
+  details {
+    inline-size: 50ch;
+    width: 725.112px;
+    border-bottom: solid 1px #dadada;
+
+    @media (prefers-reduced-motion: no-preference) {
+      interpolate-size: allow-keywords;
+    }
+
+    &::details-content {
+      opacity: 0;
+      block-size: 0;
+      overflow-y: clip;
+      transition:
+        content-visibility 1s allow-discrete,
+        opacity 1s,
+        block-size 1s;
+    }
+
+    &[open]::details-content {
+      opacity: 1;
+      block-size: auto;
+    }
+  }
+
+  details[open] {
+    --r: z 90deg;
+  }
+
   #faq {
     background-color: var(--gray);
     border-radius: 30px;
@@ -31,15 +69,37 @@ console.log(faqData);
     flex-direction: column;
     align-items: center;
     gap: 40px;
+    margin: 151px 236px;
+    max-width: 100%;
+    padding: 151px 236px;
   }
 
   .accordion-wrapper {
     display: flex;
-    width: 723.159px;
+    /* width: 723.159px; */
     flex-direction: column;
     align-items: flex-start;
-    gap: 27px;
+
+    max-width: 725px;
+    margin-inline: auto;
   }
+
+  .green_text {
+    color: #fff;
+    display: block;
+    border-radius: 20px;
+    background: #4eaf4e;
+    padding: 0px 19px;
+    text-align: center;
+    font-family: "Lato", sans-serif;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 147.5%; /* 23.6px */
+    letter-spacing: 2.32px;
+    text-transform: uppercase;
+  }
+
   h1 {
     color: #181818;
 
@@ -59,15 +119,35 @@ console.log(faqData);
     font-weight: 500;
     line-height: 116%;
     gap: 27px;
+    text-wrap: revert;
 
     &::marker,
     &::-webkit-details-marker {
       content: "";
       display: none;
     }
+    span {
+      border: none;
+      text-align: start;
+      padding: 0;
+      inline-size: 100%;
+      padding-block: 1rlh;
+      display: flex;
+      gap: 10rem;
+      width: 725.112px;
+      justify-content: space-between;
+
+      svg {
+        inline-size: auto;
+        height: 1lh;
+        flex-shrink: 0;
+        justify-self: end;
+        transform: var(--r);
+      }
+    }
   }
   p {
-    color: #595566;
+    color: var(--brødtekst);
     font-family: "Lato";
     font-size: 16px;
     font-style: normal;

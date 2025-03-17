@@ -1,4 +1,5 @@
 ---
+import "../styles/global.css";
 //@ts-nocheck
 const servicesData = await fetch(
   "https://frontend-design-theme.netlify.app/api/services"
@@ -18,15 +19,24 @@ const servicesData = await fetch(
 </ul>
 
 <style>
+  section {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    bottom: -95px;
+    aspect-ratio: 1;
+    max-width: 60px;
+    object-fit: cover;
+    border-radius: 1e5px;
+  }
   ul {
     display: flex;
     width: 1200px;
     flex-direction: row;
     align-items: flex-start;
     gap: 10px;
-    background: #0000;
-    position: absolute;
-    bottom: -5px;
   }
 
   li {
@@ -36,7 +46,7 @@ const servicesData = await fetch(
     justify-content: center;
     align-items: center;
     gap: 10px;
-    flex: 1 0 0;
+    /* flex: 1 0 0; */
     border-radius: 20px;
     border: 1px solid rgba(255, 255, 255, 0.2);
 
@@ -56,7 +66,7 @@ const servicesData = await fetch(
   h2 {
     color: #fff;
 
-    font-family: Cabin;
+    font-family: var(--cabin);
     font-size: 25px;
     font-style: normal;
     font-weight: 600;
@@ -65,7 +75,7 @@ const servicesData = await fetch(
 
   p {
     color: #fff;
-    font-family: Lato;
+    font-family: var(--lato);
     font-size: 16px;
     font-style: normal;
     font-weight: 400;

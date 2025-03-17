@@ -1,0 +1,45 @@
+---
+import "../styles/global.css";
+---
+
+<section class="grid_1-1">
+  <div>
+    <h3>Subscribe Our Newsletter</h3>
+    <p>Build stronger Customer Relationships with <b>Consultalk</b></p>
+  </div>
+  <form>
+    <label for="email"></label>
+    <input type="email" id="email" placeholder="your email adress" />
+    <button data-surface="gul">Subscribe</button>
+  </form>
+</section>
+<style>
+  .grid_1-1 {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+    width: 1200px;
+    height: 252px;
+    background-color: var(--sort);
+    color: var(--hvid);
+    border-radius: 30px;
+    background-image: url(/Pattern.svg);
+    background-repeat: no-repeat;
+    background-position: right;
+  }
+
+  input {
+    background-color: var(--hvid);
+    color: var(--sort);
+    border-radius: 54px;
+    padding: 22px 155px 22px 33px;
+    margin-right: 10px;
+  }
+
+  h3 {
+    font-family: var(--cabin);
+    font-size: 30px;
+    font-weight: 550;
+  }
+</style>
