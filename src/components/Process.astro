@@ -1,0 +1,129 @@
+---
+import Bento from "./Bento.astro";
+
+import Phone from "../icons/phone.svg";
+import Clock from "../icons/clock.svg";
+import Pin from "../icons/pin.svg";
+---
+
+<section>
+  <article>
+    <div class="flow">
+      <div class="text">
+        <h4>PROCESS</h4>
+        <h2>Contact Us. It's Easy</h2>
+        <p>
+          Leverage agile frameworks to provide a robust synopsis for high level
+          overviews. Iterative approaches to corporate strategy foster
+          collaborative.
+        </p>
+      </div>
+      <div class="info-container">
+        <Phone class="phone" />
+        <div>
+          <p>Call Today</p>
+          <p>+1 800 100 900</p>
+        </div>
+      </div>
+      <div class="info-container">
+        <Clock class="clock" />
+        <div>
+          <p>Call Today</p>
+          <p>+1 800 100 900</p>
+        </div>
+      </div>
+      <div class="info-container">
+        <Pin class="pin" />
+        <div>
+          <p>Call Today</p>
+          <p>+1 800 100 900</p>
+        </div>
+      </div>
+    </div>
+    <div>
+      <Bento />
+    </div>
+  </article>
+</section>
+<style>
+  section {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    padding-top: 100px;
+
+    padding-bottom: 150px;
+  }
+  article {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: center;
+    justify-content: center;
+    gap: 69px;
+  }
+
+  h2 {
+    margin-bottom: 1.5rem;
+    font-size: 2.5rem;
+    font-weight: 650;
+    color: #333;
+  }
+
+  .flow {
+    place-self: end;
+  }
+
+  h4 {
+    padding: 0px 12px;
+    background-color: var(--gul);
+    border-radius: 20px;
+    width: fit-content;
+  }
+
+  p {
+    max-width: 40ch;
+
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #555;
+    margin-bottom: 2rem;
+  }
+
+  .info-container {
+    display: flex;
+    flex-direction: row;
+    line-height: 1.5lh;
+
+    align-items: center;
+  }
+
+  .info-container div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  svg {
+    width: 50px;
+    height: 50px;
+    padding: 10px;
+    border-radius: 50%;
+  }
+
+  .phone {
+    background-color: #ffecbb;
+    color: #deaa27;
+    margin-right: 20px;
+  }
+  .clock {
+    background-color: #a4eda4;
+    color: #4eaf4e;
+    margin-right: 20px;
+  }
+  .pin {
+    background-color: #eaeaea;
+    color: #181818;
+    margin-right: 20px;
+  }
+</style>

@@ -1,0 +1,55 @@
+---
+const { data } = Astro.props;
+import ArrowRight from "../icons/arrow--right.svg";
+
+const Icon = await import(`../icons/${data.icon}.svg`).then(
+  (module) => module.default
+);
+---
+
+<li id="item">
+  {Icon && <Icon class="icon" />}
+  <h2>{data.title}</h2>
+  <p>{data.description}</p>
+  <div>
+    <a href={data.link.url}>{data.link.text} </a>
+    {ArrowRight && <ArrowRight />}
+  </div>
+</li>
+
+<style>
+  li {
+    background-color: #ebebeb;
+    color: black;
+    padding: 44px 35px;
+    gap: 36px;
+    scroll-snap-align: center;
+    scroll-snap-stop: always;
+    flex-basis: min(90%, 400px);
+    flex-shrink: 0;
+    border-radius: 20px;
+    height: fit-content;
+  }
+
+  h2 {
+    padding-top: 24px;
+    font-family: var(--cabin);
+    font-size: 25px;
+    font-weight: 550;
+  }
+  p {
+    padding-top: 10px;
+    font-family: var(--lato);
+    color: var(--brødtekst);
+  }
+
+  div svg {
+    width: 13px;
+  }
+
+  div {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+  }
+</style>

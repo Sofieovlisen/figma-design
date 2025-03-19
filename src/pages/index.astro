@@ -4,16 +4,99 @@ import Hero from "../components/Hero.astro";
 import Accordion from "../components/Accordion.astro";
 import "../styles/global.css";
 import Newsletter from "../components/Newsletter.astro";
+import Scrolling from "../components/Scrolling.astro";
+
+import WhatToExpect from "../components/WhatToExpect.astro";
+import Experience from "../components/Experience.astro";
+import CoreValues from "../components/CoreValues.astro";
+import Process from "../components/Process.astro";
+import Bento from "../components/Bento.astro";
 ---
 
 <Layout>
   <Hero />
-  <Accordion />
-  <Newsletter />
-</Layout>
+  <WhatToExpect />
+  <!-- <Scrolling /> -->
 
-<style>
-  body {
-    background-color: var(--hvid);
-  }
-</style>
+  <Scrolling />
+  <!-- <Accordion /> -->
+  <Experience />
+  <CoreValues />
+  <Process />
+
+  <Newsletter />
+
+  <style>
+    body {
+      background-color: var(--hvid);
+    }
+
+    section {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+    }
+
+    div {
+      max-width: 45ch;
+    }
+
+    h2 {
+      font-family: var(--cabin);
+      font-size: 45px;
+      font-weight: 570;
+    }
+
+    h4 {
+      padding: 0px 12px;
+      border-radius: 20px;
+      background-color: var(--gul);
+      width: fit-content;
+      font-family: var(--lato);
+    }
+    .svg {
+      position: absolute;
+      height: 200px;
+      top: -2.5rem;
+      left: -2.5rem;
+      z-index: -2;
+      border-radius: 0;
+    }
+    img {
+      border-radius: 30px;
+      display: block;
+      position: relative;
+
+      &::before {
+        content: "";
+
+        position: absolute;
+      }
+    }
+
+    ul {
+      display: grid;
+      gap: 1rem;
+      line-height: 1, 5;
+    }
+
+    li {
+      display: grid;
+      grid-template-columns: auto 1fr;
+
+      gap: 1rem;
+      font-size: 1rem;
+      color: #595566;
+    }
+
+    li:before {
+      content: "";
+      width: 1.6rem;
+      height: 1lh;
+      background: var(--checkmark-icon) 50% 50% / 100% auto no-repeat;
+      background-position: 50% 50%;
+      background-size: 100% auto;
+    }
+  </style>
+</Layout>

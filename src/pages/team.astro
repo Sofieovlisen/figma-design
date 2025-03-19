@@ -1,0 +1,93 @@
+---
+import TeamCard from "../components/TeamCard.astro";
+import "../styles/global.css";
+import Layout from "../layouts/Layout.astro";
+import Newsletter from "../components/Newsletter.astro";
+---
+
+<Layout>
+  <section class="banner">
+    <!-- <img src="/teambanner.jpg" alt="" /> -->
+    <div class="banner_tekst">
+      <h4>TEAM</h4>
+      <h2>The Consulters</h2>
+    </div>
+  </section>
+  <section class="page">
+    <div class="top">
+      <div class="text">
+        <h2>Meet Our Great Team</h2>
+        <p>
+          Welcome to our amazing team! We are a group of passionate individuals
+          dedicated to excellence and innovation. Each member brings unique
+          skills and experiences, working together to achieve our goals. Join us
+          as we embark on exciting projects and create lasting impacts.
+        </p>
+      </div>
+      <button data-surface="sort"> Join our team</button>
+    </div>
+    <TeamCard />
+  </section>
+  <Newsletter />
+</Layout>
+
+<style>
+  .banner {
+    background-image: url(/teambanner.jpg);
+    height: 487px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .banner_tekst {
+    background: rgba(255, 255, 255, 0.85);
+    padding: 48px 60px;
+    width: fit-content;
+    border-radius: 30px;
+    place-self: center;
+    margin-left: 200px;
+  }
+  .page {
+    display: grid;
+    grid-template-columns: 1fr[content] minmax(0, 1200px) 1fr;
+    gap: 60px;
+
+    padding-top: 100px;
+    padding-bottom: 100px;
+    > * {
+      grid-column: content; /* man kan også bruge 2 (tallet) */
+    }
+  }
+
+  .top {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  button {
+    width: fit-content;
+    height: fit-content;
+    place-self: end end;
+  }
+
+  .text {
+    color: var(--sort);
+    max-width: 65ch;
+  }
+
+  img {
+    width: 100%;
+    padding: 0;
+    margin: 0;
+  }
+
+  h4 {
+    font-family: var(--lato);
+    font-size: 16px;
+    color: var(--sort);
+    padding: 0px 17px;
+    border-radius: 20px;
+    background: #ffcc4a;
+    width: fit-content;
+  }
+</style>

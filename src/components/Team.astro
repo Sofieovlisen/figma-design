@@ -1,0 +1,60 @@
+---
+import "../styles/global.css";
+const employeesData = await fetch(
+  "https://frontend-design-theme.netlify.app/api/employees"
+).then((response) => response.json());
+console.log(employeesData);
+---
+
+<h4>OUR TEAM</h4>
+<h2>We champion the bold to achieve the extraordinary</h2>
+<p>
+  Our success stems from the synergy between dedicated teams and our valued
+  clients. We prioritize a company culture that fosters exceptional
+  productivity, ensures customer satisfaction, and promotes mutual respect among
+  all team members.
+</p>
+
+<section>
+  <ul>
+    {
+      employeesData.map((employee) => (
+        <li>
+          <img src={employee.img} alt={employee.name} />
+          <h4>{employee.title}</h4>
+          <h3>{employee.name}</h3>
+          <p>{employee.description}</p>
+        </li>
+      ))
+    }
+  </ul>
+</section>
+<style>
+  ul {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 30px;
+    list-style: none;
+  }
+
+  h4 {
+    font-family: var(--lato);
+    padding: 4px 21px;
+    border-radius: 30px;
+    background-color: var(--gul);
+    width: fit-content;
+  }
+  section h4 {
+    position: absolute;
+
+    margin-left: 5px;
+  }
+
+  h3 {
+    font-family: var(--cabin);
+  }
+
+  img {
+    position: relative;
+  }
+</style>

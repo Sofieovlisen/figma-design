@@ -1,0 +1,114 @@
+---
+// @ts-nocheck
+const teamData = await fetch(
+  "https://frontend-design-theme.netlify.app/api/employees"
+).then((response) => response.json());
+---
+
+<section>
+  <ul>
+    {
+      teamData.map((person) => (
+        <li>
+          <a href={`/employees/${person.slug}`}>
+            <div class="image-container">
+              <img src={person.img} alt={person.name} />
+              <span>{person.title}</span>
+            </div>
+          </a>
+          <h2>{person.name}</h2>
+          <p>{person.description}</p>
+          <div>
+            {person.social_links.map((link) => (
+              <a href={link.url} set:html={link.icon} />
+            ))}
+          </div>
+        </li>
+      ))
+    }
+  </ul>
+</section>
+
+<style>
+  section {
+    display: flex;
+    flex-direction: row;
+  }
+
+  ul {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+
+    padding: 0;
+    list-style: none;
+
+    li {
+      background: #fff;
+      padding: 1rem;
+      text-align: center;
+      border-radius: 10px;
+
+      img {
+        width: 100%;
+        height: auto;
+        border-radius: 10px;
+      }
+
+      .image-container {
+        position: relative;
+        display: inline-block;
+        width: 100%;
+
+        span {
+          position: absolute;
+          bottom: 10px;
+          right: 10px;
+          background: rgba(0, 0, 0);
+          color: var(--hvid);
+          font-family: var(--lato);
+          font-size: 0.9rem;
+          padding: 4px 21px;
+          border-radius: 30px;
+          font-weight: 500;
+        }
+      }
+
+      h2 {
+        font-size: 30px;
+        margin: 0.5rem 0;
+      }
+
+      p {
+        font-size: 0.9rem;
+        color: #555;
+      }
+
+      div {
+        display: flex;
+        justify-content: center;
+        gap: 0.5rem;
+        margin-top: 0.5rem;
+
+        a {
+          display: inline-block;
+          width: 24px;
+          height: 24px;
+
+          svg {
+            width: 24px;
+            height: 24px;
+            color: black;
+          }
+
+          /* Hover effekt */
+          &:hover {
+            opacity: 0.7;
+            transform: scale(1.1);
+            transition: all 0.2s ease-in-out;
+          }
+        }
+      }
+    }
+  }
+</style>

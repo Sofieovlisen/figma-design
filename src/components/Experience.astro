@@ -1,0 +1,141 @@
+---
+//@ts-nocheck
+const experienceData = await fetch(
+  "https://frontend-design-theme.netlify.app/api/experience"
+).then((response) => response.json());
+
+console.log(experienceData);
+---
+
+<div class="container">
+  <section>
+    <div class="flow">
+      <h4>EXPERIENCE</h4>
+      <h2>{experienceData.heading}</h2>
+      <p>{experienceData.subheading}</p>
+    </div>
+
+    <ul class="stats">
+      {
+        experienceData.stats.map((stat) => (
+          <>
+            <li class="stat-container">
+              <div class="stat" style={`--percent: ${stat.value}`} />
+              <div>{stat.label}</div>
+            </li>
+          </>
+        ))
+      }
+    </ul>
+  </section>
+</div>
+
+<style>
+  .container {
+    display: flex;
+    flex-direction: row;
+
+    justify-content: center;
+
+    gap: 2rem;
+    background-color: #fbc336;
+    padding: 2rem;
+  }
+
+  section {
+    display: flex;
+    flex-direction: row;
+    align-items: top;
+
+    background-color: #fbc336;
+    padding-block: 100px;
+
+    div {
+      max-width: 45ch;
+
+      h4 {
+        padding: 0px 14px;
+        font-size: var(--h4-font-size);
+        background-color: var(--hvid);
+        border-radius: 20px;
+        width: fit-content;
+      }
+    }
+  }
+
+  h2 {
+    font-size: 45px;
+    font-weight: 600;
+    font-family: var(--cabin);
+    padding-bottom: 20px;
+    padding-top: 22px;
+  }
+
+  p {
+    font-family: var(--lato);
+    font-size: 18px;
+  }
+
+  .stats {
+    display: flex;
+    gap: 5rem;
+    justify-content: center;
+  }
+
+  .stat-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    font-family: var(--cabin);
+    font-size: 20px;
+    font-weight: 550;
+  }
+
+  .stat {
+    --p: calc(var(--percent) * 1%);
+    --border-width: 5px;
+    --border-color: white;
+    font-size: 45px;
+    font-weight: bold;
+    aspect-ratio: 1;
+    width: 150px;
+    margin-bottom: 1.5rem;
+    border-radius: calc(Infinity * 1px);
+    border: var(--border-width) solid #0000;
+    background:
+      radial-gradient(
+          circle at 50% calc(var(--border-width) / 2),
+          var(--border-color) calc(var(--border-width) / 2),
+          transparent 0
+        )
+        border-box,
+      linear-gradient(#fbc336, #fbc336) padding-box,
+      conic-gradient(var(--border-color) var(--p), gray 0) border-box;
+
+    display: grid;
+    counter-reset: count var(--percent);
+
+    &::before,
+    &::after {
+      grid-area: 1 / 1;
+    }
+
+    &::after {
+      content: counter(count) "%";
+      place-self: center;
+    }
+
+    &::before {
+      content: "";
+      aspect-ratio: 1;
+      border-radius: calc(Infinity * 1px);
+      width: calc(var(--border-width) * 4);
+      background: black;
+      outline: 3px solid white;
+      offset-path: border-box;
+      offset-distance: var(--p);
+      offset-anchor: 50% calc(50% - var(--border-width) / 2);
+    }
+  }
+</style>

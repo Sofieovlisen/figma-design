@@ -12,7 +12,46 @@
     --cabin: 'Cabin', sans-serif;
     --lato: 'Lato ', sans-serif;
 
+    --checkmark-icon: url(../icons/checkmark.svg);
+
 }
+/* body {
+    display: grid;
+    grid-template-columns: minmax(20px, 1fr) [content-start] minmax(0, 1200px) [content-end] minmax(20px, 1fr);
+  
+    > * {
+      grid-column: 1 / -1;
+  
+      display: grid;
+      grid-template-columns: subgrid;
+  
+      > * {
+        grid-column: content;
+      }
+    }
+  
+  } */
+
+  li{
+    list-style: none;
+  }
+
+  a{
+    text-decoration: none;
+  }
+
+  h2 {
+    font-family: var(--cabin);
+    font-size: 40px;
+    font-weight: 600;
+    padding-bottom: 11px;
+  }
+
+  p{
+    font-family: var(--lato);
+    font-size: 16px;
+    color: var(--brødtekst);
+  }
 
 [data-surface="gul"] {
     --bg-btn: var(--gul);

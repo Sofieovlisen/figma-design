@@ -1,0 +1,141 @@
+---
+import Checkmark from "../icons/checkmark.svg";
+---
+
+<section>
+  <article>
+    <figure>
+      <img class="svg" src="/Pattern3.svg" alt="" />
+      <img src="/home.jpg" alt="" />
+    </figure>
+
+    <div>
+      <h4>WE'LL WORK WITH YOU</h4>
+      <h2>What To Expect</h2>
+      <p>
+        Our collaboration is built on transparency, efficiency, and measurable
+        results. Together, we create strategies tailored to your unique needs
+        and goals.
+      </p>
+      <ul>
+        <li>
+          Collaborate to build actionable strategies that drive sustainable
+          growth and deliver tangible outcomes.
+        </li>
+        <li>
+          Identify opportunities to optimize processes and implement impactful
+          solutions with measurable results.
+        </li>
+      </ul>
+    </div>
+  </article>
+</section>
+
+<style>
+  :root {
+    --checkmark-icon: url("../src/icons/checkmark.svg");
+  }
+  section {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    padding-top: 250px;
+    gap: 82px;
+    padding-bottom: 100px;
+
+    article {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 82px;
+    }
+
+    figure {
+      position: relative;
+      padding-top: 3rem;
+      align-self: end;
+
+      &::before {
+        content: "";
+        position: absolute;
+        background: var(--grøn);
+        top: 25px;
+        left: 25px;
+        width: 183px;
+        height: 164px;
+        border-radius: 12px;
+        z-index: 1;
+      }
+      :first-of-type {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 250px;
+        height: 250px;
+        object-fit: contain;
+        z-index: 0;
+      }
+
+      :last-of-type {
+        position: relative;
+        z-index: 2;
+        width: 450px;
+        margin-left: 70px;
+        margin-top: 20px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        border-radius: 12px;
+      }
+    }
+    div {
+      max-width: 50ch;
+
+      h2 {
+        margin-bottom: 1.5rem;
+        font-size: 2.5rem;
+        font-weight: 650;
+        color: #333;
+      }
+
+      h4 {
+        padding: 0px 12px;
+        background-color: var(--gul);
+        border-radius: 20px;
+        width: fit-content;
+      }
+
+      p {
+        font-size: 1rem;
+        line-height: 1.6;
+        color: #555;
+        margin-bottom: 2rem;
+      }
+
+      /* Tilføj checkmark points som i det originale billede */
+      p::after {
+        margin-top: 2rem;
+      }
+      p + ul li {
+        position: relative;
+        padding-left: 2rem;
+        margin-bottom: 1rem;
+        line-height: 1.4;
+      }
+
+      p + ul li::before {
+        content: var(--checkmark-icon);
+
+        position: absolute;
+        left: 0;
+        top: 0.2rem;
+        width: 20px;
+        height: 20px;
+
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+      }
+    }
+  }
+</style>

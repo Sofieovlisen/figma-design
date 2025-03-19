@@ -1,0 +1,106 @@
+---
+import "../styles/global.css";
+
+import Card from "./Card.astro";
+
+const financialProjections = await fetch(
+  "https://frontend-design-theme.netlify.app/api/financialProjections"
+).then((response) => response.json());
+
+console.log(financialProjections);
+
+import ArrowRight from "../icons/arrow--right.svg";
+import ArrowLeft from "../icons/arrow-left.svg";
+---
+
+<section>
+  <div class="top">
+    <div class="text">
+      <h2>Financial Projections</h2>
+      <p>
+        Financial projections are essential for planning and monitoring a
+        company’s performance. They provide insights into potential revenue,
+        expenses, and profitability over specific periods.
+      </p>
+    </div>
+    <div class="icon">
+      <button data-surface="gul"> <ArrowLeft /></button>
+      <button data-surface="gul">
+        <ArrowRight />
+      </button>
+    </div>
+  </div>
+  <ul id="container">
+    {
+      financialProjections.values.map((item) => {
+        return <Card data={item} />;
+      })
+    }
+  </ul>
+</section>
+<style>
+  section {
+    display: grid;
+    grid-template-columns: 1fr[content] minmax(0, 1200px) 1fr;
+    gap: 60px;
+    background-color: var(--gray);
+    padding-top: 150px;
+    padding-bottom: 100px;
+    > * {
+      grid-column: content; /* man kan også bruge 2 (tallet) */
+    }
+  }
+  .top {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 300px;
+  }
+  .text {
+    max-width: 65ch;
+  }
+  h2 {
+    font-family: var(--cabin);
+    font-size: 40px;
+  }
+  ul {
+    list-style: none;
+    display: flex;
+    overflow-x: auto;
+    gap: 36px;
+    margin-inline: auto;
+    /* padding-inline: max(20px, 50% - 50rem / 2); */
+    scroll-snap-type: inline mandatory;
+    padding-inline: max(20px, 50% - 1200px / 2);
+    scroll-padding-inline-end: max(20px, 50% - 1200px / 2);
+    li:hover {
+      background-color: var(--sort);
+      color: var(--hvid);
+      svg {
+        color: var(--gul);
+      }
+    }
+  }
+
+  button {
+    border-radius: 100%;
+    /* height: 60px;
+    width: 60px; */
+    height: 87px;
+
+    svg {
+      color: var(--sort);
+      height: 21px;
+      width: 25px;
+    }
+  }
+  button:hover {
+    background-color: var(--sort);
+    svg {
+      color: var(--hvid);
+    }
+  }
+
+  .icon {
+    place-self: end start;
+  }
+</style>

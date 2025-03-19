@@ -2,18 +2,26 @@
 import "../styles/global.css";
 ---
 
-<section class="grid_1-1">
-  <div>
-    <h3>Subscribe Our Newsletter</h3>
-    <p>Build stronger Customer Relationships with <b>Consultalk</b></p>
-  </div>
-  <form>
-    <label for="email"></label>
-    <input type="email" id="email" placeholder="your email adress" />
-    <button data-surface="gul">Subscribe</button>
-  </form>
+<section>
+  <section class="grid_1-1">
+    <div>
+      <h3>Subscribe Our Newsletter</h3>
+      <p>Build stronger Customer Relationships with <b>Consultalk</b></p>
+    </div>
+    <form>
+      <label for="email"></label>
+      <input type="email" id="email" placeholder="your email adress" />
+      <button data-surface="gul">Subscribe</button>
+    </form>
+  </section>
 </section>
 <style>
+  section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 50px;
+  }
   .grid_1-1 {
     display: flex;
     flex-direction: row;
