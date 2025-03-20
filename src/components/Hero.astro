@@ -17,7 +17,7 @@ import Services from "./Services.astro";
       <button data-surface="hvid">Book a Meeting</button>
     </div>
   </div>
-  <img src="/Photo.jpg" alt="Billede" />
+  <img class="dame" src="/Photo.jpg" alt="Billede" />
   <section class="cards">
     <Services />
   </section>
@@ -82,6 +82,10 @@ import Services from "./Services.astro";
     gap: 20px;
   }
 
+  .dame {
+    min-width: 400px;
+  }
+
   h1 {
     font-family: var(--cabin);
     font-size: 50px;
@@ -115,5 +119,35 @@ import Services from "./Services.astro";
   p {
     color: var(--hvid);
   }
-  /* Styles her */
+  @media (max-width: 1075px) {
+    .hero {
+      display: flex;
+      flex-direction: column;
+      background-image: url(/Photo.jpg);
+      background-size: 100%;
+      width: 100%;
+    }
+    * {
+      position: unset;
+    }
+    img {
+      display: none;
+    }
+    h1 {
+      font-size: 40px;
+    }
+  }
+  @media (max-width: 800px) {
+    .hero {
+      display: flex;
+      flex-direction: column;
+      background-image: url(/Photo.jpg);
+      background-size: 100%;
+      width: 100%;
+    }
+
+    img {
+      display: none;
+    }
+  } /* Styles her */
 </style>

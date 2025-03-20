@@ -12,7 +12,8 @@ const servicesData = await fetch(
       <li>
         <h2>{service.title}</h2>
         <p>{service.description}</p>
-        <a href="#0">{service.buttonText}</a>
+        <a href="#0" />
+        <button data-surface="sort">{service.buttonText}</button>
       </li>
     ))
   }
@@ -59,10 +60,6 @@ const servicesData = await fetch(
     gap: 36px;
   }
 
-  img {
-    background: url(https://s3-alpha-sig.figma.com/img/18ac/a905/855e7462a88e8579e28bfc183e76927c?Expires=1742774400&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=GDwOYsZp6MwStBj5k2EFyEOJcBZkR6YMwq66lSjzLR5izfotGPKkjk3eV1LINm4pUcI234q2g~OMp5RqID4I7wQ3PKIri5RMujuhJq6k0~w0sOsswLoZKUWk8ao2SPA-RS7cP-oMUWGmQ~7uwp-GQdBLKzo8NNVdp7uD5LaHDAGCem80ByhZN5zM6tXBuSA4lVlfj51I4k0lfOQYd5YHF0QQ2m1DBAMHPJk4ck1LjkEbUifReuW-MUYc9-3jsW0mIL2gj9ShE~GkOr72bxDH-9u5W1YkN85pSXTVSCUzB2LYPLmiPmzbs37PGa4vdx5gKJDpKROSDOwdWMINn6nHzQ__);
-  }
-
   h2 {
     color: #fff;
 
@@ -82,21 +79,5 @@ const servicesData = await fetch(
     line-height: 147.5%;
     width: 293.003px;
     height: 70.531px;
-  }
-  a {
-    display: flex;
-    padding: 16px 31px;
-    align-items: center;
-    gap: 10px;
-    border-radius: 55px;
-    background: #151515;
-    color: #fff;
-    text-decoration: none;
-    text-align: center;
-    font-family: Lato;
-    font-size: 18px;
-    font-style: normal;
-    font-weight: 600;
-    line-height: 160%;
   }
 </style>
