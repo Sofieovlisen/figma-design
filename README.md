@@ -1,19 +1,82 @@
-# Opgaveskabelon til Frontend Design tema på Frontend-valgfaget
+Reflektion over opgave.
 
-Se opgavebeskrivelsen på Fronter.
+Jeg har virkelig haft svært ved denne opgave, da jeg har følt at det var en meget stor opgave på lidt tid.
 
-## Medfølgende API
+Kunne jeg starte forfra, ville jeg have startet mobile first og sikret responisviteten i sitet, men da jeg var bange for ikke at kunne nå at få sitet til at se ud som figma-filen, prioriterede jeg desktop.
 
-Der medfølger en simpel API, som du kan bruge til at hente data til din opgave. Det er ikke et krav til opgaven, men det kan gøre det nemmere og hurtigere at få tekst og billeder ind i dit projekt.
+Derudover, har jeg haft svært ved at nå at samle og rydde op i min kode navnligt css.
 
-Dokumentationen til API'et finder du på: [https://frontend-design-theme.netlify.app/](https://frontend-design-theme.netlify.app/).
+Der er helt klart mange ting jeg ville gøre anerledes, hvis jeg havde tiden. Dog har jeg gjort brug af variabler, pseudo elementer, data-surface og scroll-snap mm.
 
-Her er et eksempel på, hvordan du kan hente data fra API'et:
+Nogle eksempler på dette:
 
-```astro
-const employeesData = await fetch(
-  "https://frontend-design-theme.netlify.app/api/employees"
-).then((response) => response.json());
+[data-surface="gul"] {
+    --bg-btn: var(--gul);
+    --text-btn: var(--sort);
+  }
 
-console.log(employeesData);
-```
+  [data-surface="gul"]:hover {
+    --bg-btn: var(--gul-hover);
+    --text-btn: var(--sort);
+  }
+
+  [data-surface="hvid"] {
+    --bg-btn: var(--hvid);
+    --text-btn: var(--sort);
+  }
+  
+  [data-surface="sort"] {
+    --bg-btn: var(--sort);
+    --text-btn: var(--hvid);
+    
+  }
+  [data-surface="sort"]:hover {
+    --bg-btn: var(--hvid);
+    --text-btn: var(--sort);
+    border: solid 2px var(--sort);
+    
+  }
+  button {
+    background: var(--bg-btn, var(--hvid));
+    color: var(--text-btn, var(--sort));
+    border-radius: 42px;
+    padding: 16px 31px;
+    font-family: var(--lato);
+  }
+
+  -------------------------------------------
+
+  &::before {
+        content: "";
+        position: absolute;
+        background: var(--grøn);
+        top: 25px;
+        left: 25px;
+        width: 183px;
+        height: 164px;
+        border-radius: 12px;
+        z-index: 1;
+      }
+      :first-of-type {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 250px;
+        height: 250px;
+        object-fit: contain;
+        z-index: 0;
+      }
+
+      :last-of-type {
+        position: relative;
+        z-index: 2;
+        width: 450px;
+        margin-left: 70px;
+        margin-top: 20px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        border-radius: 12px;
+      }
+
+
+
+
