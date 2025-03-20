@@ -2,6 +2,7 @@
 import "../styles/global.css";
 
 import Card from "./Card.astro";
+const { variant = "dark" } = Astro.props;
 
 const coreValues = await fetch(
   "https://frontend-design-theme.netlify.app/api/coreValues"
@@ -10,7 +11,7 @@ const coreValues = await fetch(
 console.log(coreValues);
 ---
 
-<section>
+<section class="section" data-variant={variant}>
   <div class="top">
     <div class="text">
       <h4>GROWING WITH OUR CLIENTS</h4>
@@ -21,7 +22,7 @@ console.log(coreValues);
         DevOps.
       </p>
     </div>
-    <button data-surface="hvid">Get in touch</button>
+    <button>Get in touch</button>
   </div>
   <ul id="container">
     {
@@ -58,7 +59,6 @@ console.log(coreValues);
   }
 
   .text {
-    color: var(--hvid);
     max-width: 65ch;
   }
 
@@ -84,6 +84,7 @@ console.log(coreValues);
     grid-template-columns: 1fr 1fr 1fr 1fr;
     width: 1200px;
     gap: 36px;
+    list-style: none;
   }
 
   a::after {
@@ -95,5 +96,24 @@ console.log(coreValues);
     background-size: contain;
     background-repeat: no-repeat;
     margin-left: 8px;
+  }
+
+  [data-variant="dark"] {
+    background-color: var(--sort);
+    color: var(--hvid);
+    button {
+      background-color: white;
+      color: black;
+    }
+  }
+
+  [data-variant="light"] {
+    background-color: var(--gray);
+    color: var(--sort);
+
+    button {
+      background-color: black;
+      color: white;
+    }
   }
 </style>

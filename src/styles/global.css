@@ -32,9 +32,9 @@
   
   } */
 
-  li{
+  /* li{
     list-style: none;
-  }
+  } */
 
   a{
     text-decoration: none;
@@ -85,4 +85,31 @@
     border-radius: 42px;
     padding: 16px 31px;
     font-family: var(--lato);
+  }
+
+
+
+  [data-surface="primary"] {
+    --bg-section: var(--gray);
+    --text-section: var(--sort);
+    --bg-card: var(--hvid);
+
+  }
+  
+  [data-surface="secondary"] {
+    --bg-card: var(--gray);
+    --bg-section: var(--sort);
+    --text-card: var(--sort);
+    --text-section: var(--hvid);
+    
+  }
+  
+  section {
+    background: var(--bg-section, var(--none));
+    color: var(--text-section, var(--black));
+  }
+  
+  .card {
+    background: var(--bg-card, var(--gray));
+    color: var(--text-card, var(--black));
   }

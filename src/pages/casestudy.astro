@@ -1,0 +1,184 @@
+---
+import Newsletter from "../components/Newsletter.astro";
+import Layout from "../layouts/Layout.astro";
+import "../styles/global.css";
+
+//@ts-nocheck
+const caseData = await fetch(
+  "https://frontend-design-theme.netlify.app/api/caseStudy"
+).then((response) => response.json());
+---
+
+<Layout>
+  <section class="banner">
+    <div class="banner_tekst">
+      <h4>CASE STUDIES</h4>
+      <h2>Taxes & Efficiency</h2>
+    </div>
+  </section>
+  <article>
+    <section class="container">
+      <img class="computer" src="/computer.jpg" alt="" />
+      <section class="sort">
+        <div class="tekst">
+          <div>
+            <h5>Case Name</h5>
+            <p>Taxes & Efficiency</p>
+          </div>
+          <div>
+            <h5>Category</h5>
+            <p>Business</p>
+          </div>
+          <div>
+            <h5>Date</h5>
+            <p>27th September 2025</p>
+          </div>
+        </div>
+        <button data-surface="gul">Live Preview</button>
+      </section>
+    </section>
+    <section class="text">
+      {
+        caseData.sections.map((section) => (
+          <section>
+            {caseData.sections[0] === section ? (
+              <h2>{section.title}</h2>
+            ) : (
+              <h3>{section.title}</h3>
+            )}
+
+            {Array.isArray(section.content) ? (
+              <>
+                {section.content.map((item) => (
+                  <p>{item}</p>
+                ))}
+              </>
+            ) : (
+              <p>{section.content}</p>
+            )}
+            {section.highlights && (
+              <ul>
+                {section.highlights.map((highlight) => (
+                  <li>{highlight}</li>
+                ))}
+              </ul>
+            )}
+          </section>
+        ))
+      }
+    </section>
+  </article>
+  <Newsletter />
+</Layout>
+
+<style>
+  .container {
+    position: relative;
+    width: 1200px;
+    padding-top: 100px;
+    margin: auto;
+  }
+
+  .computer {
+    width: 100%;
+
+    display: block;
+    border-radius: 30px;
+  }
+
+  .sort {
+    position: absolute;
+    bottom: -135px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: var(--sort);
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 190px;
+    padding: 53px 60px;
+    width: 1028px;
+    border-radius: 30px;
+  }
+
+  .text {
+    padding-top: 220px;
+  }
+
+  article {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  .banner {
+    background-image: url(/casebanner.jpg);
+    height: 487px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+  .banner_tekst {
+    background: rgba(255, 255, 255, 0.85);
+    padding: 48px 60px;
+    width: fit-content;
+    border-radius: 30px;
+    place-self: center;
+    margin-left: 200px;
+  }
+  h4 {
+    font-family: var(--lato);
+    font-size: 16px;
+    color: var(--sort);
+    padding: 0px 17px;
+    border-radius: 20px;
+    background: #ffcc4a;
+    width: fit-content;
+  }
+
+  p:nth-of-type(2) {
+    &::after {
+      content: url(/women.jpg);
+    }
+  }
+
+  /* .computer {
+      position: relative;
+    }
+
+    .sort {
+      background-color: var(--sort);
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 190px;
+      padding: 53px 60px;
+      width: 1028px;
+      border-radius: 30px;
+      bottom: 14px;
+    } */
+  .sort p {
+    color: var(--hvid);
+  }
+
+  button {
+    width: fit-content;
+    height: fit-content;
+    place-self: center end;
+  }
+
+  .tekst {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    color: var(--hvid);
+  }
+
+  h2 {
+    font-size: 2.5rem;
+  }
+  h3 {
+    font-size: 2rem;
+  }
+  p {
+    margin-block: 1rem;
+    max-width: 91ch;
+  }
+</style>
