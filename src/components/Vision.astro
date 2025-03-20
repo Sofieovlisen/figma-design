@@ -1,0 +1,130 @@
+---
+import List from "./List.astro";
+---
+
+<section>
+  <article>
+    <div class="text">
+      <h4>OUR VISION</h4>
+      <h2>Turn your ideas into reality.</h2>
+      <p>
+        Capitalize on low hanging fruit to identify a ballpark value added
+        activity beta test. Override the digital divide with additional from
+        DevOps.
+      </p>
+
+      <List
+        items={[
+          "Bring to the table win-win survival strategies to ensure proactive domination. At the end of the day.",
+          "Capitalize on low hanging fruit to identify a ballpark value added activity to beta test override the digital.",
+        ]}
+      />
+    </div>
+    <figure>
+      <img src="/Pattern3.svg" alt="Mønster baggrund" />
+      <img class="vision" src="/vision.jpg" alt="" />
+    </figure>
+    <div class="tal">
+      <div>
+        <h2>1128+</h2>
+        <p>Successful Works</p>
+      </div>
+      <div>
+        <h2>908+</h2>
+        <p>Team Members</p>
+      </div>
+      <div>
+        <h2>258+</h2>
+        <p>Happy Customers</p>
+      </div>
+      <div>
+        <h2>564+</h2>
+        <p>Creative Ideas</p>
+      </div>
+    </div>
+  </article>
+</section>
+
+<style>
+  section {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+
+    .text {
+      max-width: 60ch;
+    }
+
+    .tal {
+      display: flex;
+      flex-direction: row;
+      gap: 135px;
+      justify-content: space-around;
+      align-items: center;
+      grid-column: span 2;
+      width: 895px;
+      place-self: center;
+      padding-top: 50px;
+    }
+
+    h4 {
+      border-radius: 20px;
+      padding: 0px 11px;
+      background-color: var(--grøn);
+      color: var(--hvid);
+      width: fit-content;
+      margin-bottom: 20px;
+    }
+
+    article {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      padding-top: 100px;
+      padding-bottom: 100px;
+    }
+
+    figure {
+      position: relative;
+      padding-top: 3rem;
+
+      &::before {
+        content: "";
+        position: absolute;
+        background: #4eaf4e;
+        top: 50px;
+        right: 65px;
+        width: 126px;
+        height: 113px;
+        border-radius: 12px;
+        z-index: -1;
+      }
+      :first-of-type {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        width: 250px;
+        height: 250px;
+        object-fit: contain;
+
+        z-index: -2;
+      }
+
+      :last-of-type {
+        position: relative;
+        z-index: 2;
+        width: 450px;
+        margin-left: 70px;
+        margin-top: 20px;
+        border-radius: 12px;
+      }
+
+      div {
+        grid-column: 1 / -1;
+      }
+      .vision {
+        border-radius: 30px;
+      }
+    }
+  }
+</style>

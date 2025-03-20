@@ -5,9 +5,17 @@ import Layout from "../layouts/Layout.astro";
 import Team from "../components/Team.astro";
 import CoreValues from "../components/CoreValues.astro";
 import "../styles/global.css";
+import Vision from "../components/Vision.astro";
 ---
 
 <Layout title="About">
+  <section class="banner">
+    <div class="bannertekst">
+      <h4>Services</h4>
+      <h2>Creative Services For Boost Your Business Growth</h2>
+    </div>
+  </section>
+  <Vision />
   <CoreValues variant="light" />
   <section class="page">
     <div class="top">
@@ -29,6 +37,31 @@ import "../styles/global.css";
 </Layout>
 
 <style>
+  .banner {
+    background-image: url(/aboutbanner.jpg);
+    height: 487px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .bannertekst {
+    background: rgba(255, 255, 255, 0.85);
+    padding: 48px 60px;
+    width: fit-content;
+    border-radius: 30px;
+    place-self: center;
+    margin-left: 200px;
+  }
+
+  h4 {
+    font-family: var(--lato);
+    font-size: 16px;
+    color: var(--sort);
+    padding: 0px 17px;
+    border-radius: 20px;
+    background: #ffcc4a;
+    width: fit-content;
+  }
   h2 {
     color: black;
   }

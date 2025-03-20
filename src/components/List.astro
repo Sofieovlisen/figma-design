@@ -1,0 +1,36 @@
+---
+//@ts-nocheck
+const { items = [] } = Astro.props;
+---
+
+<ul class="flow">
+  {items.map((item) => <li>{item}</li>)}
+</ul>
+
+<style>
+  :root {
+    --checkmark-icon: url("../src/icons/checkmark.svg");
+  }
+  ul li {
+    position: relative;
+    list-style: none;
+  }
+
+  ul li::before {
+    content: var(--checkmark-icon);
+    position: absolute;
+    left: -2.5rem;
+    top: 0.5rem;
+    width: 20px;
+    height: 20px;
+    padding-left: 0;
+    color: white;
+  }
+
+  @media (max-width: 800px) {
+    ul li::before {
+      left: 0;
+      color: white;
+    }
+  }
+</style>
